@@ -5,7 +5,14 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3'
+      filename: './data/rolex.db'
+    }, 
+    useNullAsDefault: true,
+    migrations: {
+      directory: './data/migrations'
+    }, 
+    seeds: {
+      directory: './data/seeds'
     }
   },
 
@@ -42,3 +49,11 @@ module.exports = {
   }
 
 };
+
+// -> Knex init 
+// -> in the knexfile.js, write the migrations and seeds distinctions in the development object 
+// --> knex migrate:latest 
+// --> knex migrate:make users_table
+// --> npx knex migrate:latest  
+// above instructions are for creating one table at a time 
+
